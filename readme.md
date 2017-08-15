@@ -11,9 +11,9 @@ Download and place both **icon.coffee** and **icons.json** in your Framer projec
 Next, at the top of your project's code, type: 
 
 ```coffeescript
-	{Icon} = require "Icon"
+	{ Icon } = require "Icon"
 ```
-
+Note that the { } are required!
 
 ## Usage
 
@@ -49,6 +49,11 @@ Apart from that, you can use the Icon instance just like any other Layer instanc
 ```
 
 ## Troubleshooting
+
+### I get the error: "TypeError: Object is not a constructor". What's up?
+
+You've likely left off the curly brackets around `Icon` when you required the module. Ensure that your require line looks exactly like this: `{ Icon } = require "Icon"`.
+
 
 ### Why do I keep getting the "Icon not found?" error?
 

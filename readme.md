@@ -6,8 +6,13 @@ Adapted from marcbachmann's https://www.npmjs.com/package/material-design-icons-
 	
 
 ## Installation
-Download and place icon.coffee and icons.json in your project's modules folder.
-At the top of your project, type: "{Icon} = require "icon"
+Download and place both **icon.coffee** and **icons.json** in your Framer project's modules folder.
+
+Next, at the top of your project's code, type: 
+
+```coffeescript
+	{Icon} = require "Icon"
+```
 
 
 ## Usage
@@ -47,8 +52,8 @@ Apart from that, you can use the Icon instance just like any other Layer instanc
 
 ### Why do I keep getting the "Icon not found?" error?
 
-The icon names used by this module are not always standard to Google's listings. If you're getting errors, search for the icon at https://materialdesignicons.com/. It may be listed there under a different name. If that's the case, use their name for the icon instead when creating your Icon instance.
+This module uses icons from https://materialdesignicons.com/. Unfortunately the icon names used are not always standard to the names Google uses. If you're getting errors, search for the icon at https://materialdesignicons.com/ – the icon you want may be listed there under a different name. If that's the case, use their name for the icon instead when creating your Icon instance.
 
-A common example: `icon: "search"` won't work, but `icon: "magnify"` will. ¯\_(ツ)_/¯
+A common example: `icon: "search"` won't work with this module, but `icon: "magnify"` will. ¯\_(ツ)_/¯
 	
 Enjoy! @steveruiok

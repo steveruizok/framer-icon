@@ -67,6 +67,7 @@ exports.Icon = class Icon extends Layer
 			name: '.'
 			height: 24, width: 24
 			backgroundColor: @_backgroundColor
+			color: @_color
 
 	@define "icon",
 		get: -> return @_icon

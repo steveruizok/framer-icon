@@ -43,7 +43,8 @@ Apart from that, you can use the Icon instance just like any other Layer instanc
 ```coffeescript
 	myIcon = new Icon
 		parent: myLayer
-		height: 200, width 200
+		width: 200
+		height: 200
 
 	myIcon.onTap -> print 'Hello world!'
 ```

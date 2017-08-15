@@ -1,0 +1,11 @@
+{
+    "name": "Icon",
+    "description": "A new class named Icon for creating Material Design icons. Comes with 1600 icons as SVGs.",
+    "author": "Steve Ruiz",
+
+    "require": "{ Icon } = require 'Icon'",
+    "install": "Icon.coffee",
+    "example": "example.coffee",
+
+    "thumb": "coffee.png"
+}

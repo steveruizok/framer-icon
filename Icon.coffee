@@ -60,7 +60,7 @@ exports.Icon = class Icon extends Layer
 	constructor: (options = {}) ->
 
 		@_icon = options.icon ? 'menu'
-		@_color = options.color ? '#00000'
+		@_color = options.color ? '#000000'
 		@_backgroundColor = options.backgroundColor ? null
 
 		super _.defaults options,

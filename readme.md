@@ -6,7 +6,7 @@ Adapted from marcbachmann's https://www.npmjs.com/package/material-design-icons-
 	
 
 ## Installation
-Download and place **icon.coffee** in your Framer project's modules folder.
+Download and place **Icon.coffee** in your Framer project's modules folder.
 
 Next, at the top of your project's code, type: 
 

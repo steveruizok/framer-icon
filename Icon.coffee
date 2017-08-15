@@ -12,7 +12,7 @@
 	
 
 # -- Installation:
-# 	Download and place icon.coffee in your project's modules folder.
+# 	Download and place Icon.coffee in your project's modules folder.
 # 	At the top of your project, type: "{ Icon } = require "Icon"
 
 

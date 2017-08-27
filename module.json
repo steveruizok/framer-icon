@@ -7,5 +7,5 @@
     "install": "Icon.coffee",
     "example": "example.coffee",
 
-    "thumb": "coffee.png"
+    "thumb": "example.png"
 }

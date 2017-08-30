@@ -45,13 +45,16 @@
 #			action: -> print 'munch munch'
 
 #	Icons also work as toggle buttons.
+
+# 		checkbox = new Icon
+# 			x: Align.center
+# 			y: Align.center(100)
+# 			toggle: true
+# 			action: -> print _.random(5)
 #
-# 		myIcon = new Icon
-# 			icon: 'cookie'
-# 			color: '#777777'
-#			onColor: '#02C19C'
-#			toggle: true
-#			action: -> print 'munch munch'
+# 		checkbox.on "change:isOn", (isOn) ->
+# 			@icon = if isOn then 'checkbox-marked' else 'checkbox-blank-outline'
+
 
 #	Icons can be set as disabled.
 #
@@ -62,6 +65,8 @@
 #			toggle: true
 #			disabled: true
 #			action: -> print 'munch munch'
+#
+#		myIcon.on "change:disabled", (isDisabled) -> print 'button is disabled: ' + isDisabled
 
 # 	Apart from these, you can use the Icon instance just like any other Layer instance.
 
@@ -88,11 +93,12 @@ class exports.Icon extends Layer
 		@_disabled = false
 		@_toggle = options.toggle ? false
 
-		@_isOn = false
+		@_isOn = true
 
 		@_color = options.color ? '#02C19C'
-		@_onColor = options.onColor ? '#02C19C'
-		@_offColor = options.offColor ? @_color
+		@_onColor = options.onColor ? @_color
+		@_offColor = options.offColor ? new Color(@_color).desaturate(100).lighten(15)
+		@_disabledColor = options.disabledColor ? new Color(@_offColor).alpha(.35)
 
 		@_icon = options.icon ? 'checkbox-marked'
 		@_action = options.action ? undefined
@@ -135,15 +141,15 @@ class exports.Icon extends Layer
 				if @_toggle then @isOn = !@isOn 
 
 				@hideRipple()
-				@_action()
+				if @isOn then @_action()
 
 
 	showRipple: (point = {x: 20, y: 20}) ->
 
-		if @_toggle
-			color = if @isOn then new Color(@_onColor).alpha(0.3) else new Color(@_offColor).alpha(0.3)
-		else
-			color = Color(@_color).alpha(0.3)
+		if @_toggle 
+			color = if @isOn then new Color(@_color).alpha(0.3) 
+			else new Color(@_offColor).alpha(0.3)
+		else color = Color(@_color).alpha(0.3)
 
 		@ripple.props = 
 			x: point.x - 4
@@ -177,7 +183,6 @@ class exports.Icon extends Layer
 	@define "icon",
 		get: -> return @_icon
 		set: (icon) ->
-			return if @_icon is icon
 			@_icon = icon
 			@setIcon()
 
@@ -193,6 +198,8 @@ class exports.Icon extends Layer
 			return if bool is @_disabled
 			@_disabled = bool
 			@emit("change:disabled", @_disabled, @)
+
+			@color = if @_disabled then @_disabledColor else if @_isOn then @_onColor else @_offColor
 
 	@define "isOn",
 		get: -> return @_isOn

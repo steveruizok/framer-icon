@@ -143,7 +143,7 @@ class exports.Icon extends Layer
 		if @_toggle
 			color = if @isOn then new Color(@_onColor).alpha(0.3) else new Color(@_offColor).alpha(0.3)
 		else
-			color = Color(@_color).alpha(0.3)
+			color = new Color(@_color).alpha(0.3)
 
 		@ripple.props = 
 			x: point.x - 4

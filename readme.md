@@ -1,4 +1,6 @@
 # Icon
+
+> 👋 I'm no longer updating this project. It might not work in newer versions. Good luck!
 	
 ## Introduction
 A class for creating Material Design icons, with access to 1600 icons as SVGs.
